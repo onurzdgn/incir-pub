@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>İncir Pub Kontrol Merkezi </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="amblem.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./vendor/chartist/css/chartist.min.css">
-    <link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./vendor/chartist/css/chartist.min.css">
+    	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 
 
@@ -82,9 +82,9 @@
                             <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link bell ai-icon" href="#" role="button" data-toggle="dropdown">
                                     <svg id="icon-user" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
-                                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                    </svg>
+										<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+										<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+									</svg>
                                     <div class="pulse-css"></div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -138,34 +138,25 @@
                                             <span class="notify-time">3:20 am</span>
                                         </li>
                                     </ul>
-                                    <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
+                                    <a class="all-notification" href="#">See all notifications <i
+                                            class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="images/profile/pic1.jpg" width="20" alt="" />
+                                    <img src="images/profile/pic1.jpg" width="20" alt=""/>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./app-profile.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
+                                        <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <span class="ml-2">Profile </span>
                                     </a>
                                     <a href="./email-inbox.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
-                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                            <polyline points="22,6 12,13 2,6"></polyline>
-                                        </svg>
+                                        <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                         <span class="ml-2">Inbox </span>
                                     </a>
                                     <a href="./page-login.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out">
-                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                            <polyline points="16 17 21 12 16 7"></polyline>
-                                            <line x1="21" y1="12" x2="9" y2="12"></line>
-                                        </svg>
+                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
                                 </div>
@@ -187,12 +178,9 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li class="mega-menu mega-menu-lg"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-home" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                            </svg>
-                            <span class="nav-text">Dashboard</span>
-                        </a>
+							<svg id="icon-home" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+							<span class="nav-text">Dashboard</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./index.html">Dashboard 1</a></li>
                             <li><a href="./index-2.html">Dashboard 2</a></li>
@@ -203,7 +191,7 @@
                             <li><a href="medical/index.html">Medical Dashboard</a></li>
                             <li><a href="medical/index-2.html">Patient Dashboard</a></li>
                             <li><a href="medical/index-3.html">Doctor Dashboard</a></li>
-                            <li><a href="education/index.html">Education Dashboard</a></li>
+							<li><a href="education/index.html">Education Dashboard</a></li>
                             <li><a href="education/index-2.html">Management Dashboard</a></li>
                             <li><a href="education/index-3.html">Student Dashboard</a></li>
                             <li><a href="travel/index.html">Travel Dashboard</a></li>
@@ -211,14 +199,9 @@
                     </li>
                     <li class="nav-label">Apps</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            <span class="nav-text">Apps</span>
-                        </a>
+						<svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+							<span class="nav-text">Apps</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./app-profile.html">Profile</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
@@ -229,27 +212,23 @@
                                 </ul>
                             </li>
                             <li><a href="./app-calender.html">Calendar</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
+							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./ecom-product-grid.html">Product Grid</a></li>
-                                    <li><a href="./ecom-product-list.html">Product List</a></li>
-                                    <li><a href="./ecom-product-detail.html">Product Details</a></li>
-                                    <li><a href="./ecom-product-order.html">Order</a></li>
-                                    <li><a href="./ecom-checkout.html">Checkout</a></li>
-                                    <li><a href="./ecom-invoice.html">Invoice</a></li>
-                                    <li><a href="./ecom-customers.html">Customers</a></li>
+									<li><a href="./ecom-product-list.html">Product List</a></li>
+									<li><a href="./ecom-product-detail.html">Product Details</a></li>
+									<li><a href="./ecom-product-order.html">Order</a></li>
+									<li><a href="./ecom-checkout.html">Checkout</a></li>
+									<li><a href="./ecom-invoice.html">Invoice</a></li>
+									<li><a href="./ecom-customers.html">Customers</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-charts" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart">
-                                <line x1="12" y1="20" x2="12" y2="10"></line>
-                                <line x1="18" y1="20" x2="18" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="16"></line>
-                            </svg>
-                            <span class="nav-text">Charts</span>
-                        </a>
+							<svg id="icon-charts" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+							<span class="nav-text">Charts</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./chart-flot.html">Flot</a></li>
                             <li><a href="./chart-morris.html">Morris</a></li>
@@ -261,13 +240,9 @@
                     </li>
                     <li class="nav-label">Components</li>
                     <li class="mega-menu mega-menu-xl"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-bootstrap" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                            </svg>
-                            <span class="nav-text">Bootstrap</span>
-                        </a>
+							<svg id="icon-bootstrap" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+							<span class="nav-text">Bootstrap</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./ui-accordion.html">Accordion</a></li>
                             <li><a href="./ui-alert.html">Alert</a></li>
@@ -291,20 +266,9 @@
                     </li>
 
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-plugins" viewBox="0 0 24 24" width="64" height="64" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                                <rect x="9" y="9" width="6" height="6"></rect>
-                                <line x1="9" y1="1" x2="9" y2="4"></line>
-                                <line x1="15" y1="1" x2="15" y2="4"></line>
-                                <line x1="9" y1="20" x2="9" y2="23"></line>
-                                <line x1="15" y1="20" x2="15" y2="23"></line>
-                                <line x1="20" y1="9" x2="23" y2="9"></line>
-                                <line x1="20" y1="14" x2="23" y2="14"></line>
-                                <line x1="1" y1="9" x2="4" y2="9"></line>
-                                <line x1="1" y1="14" x2="4" y2="14"></line>
-                            </svg>
-                            <span class="nav-text">Plugins</span>
-                        </a>
+							<svg id="icon-plugins" viewBox="0 0 24 24" width="64" height="64" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+							<span class="nav-text">Plugins</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./uc-select2.html">Select 2</a></li>
                             <li><a href="./uc-nestable.html">Nestedable</a></li>
@@ -315,23 +279,14 @@
                         </ul>
                     </li>
                     <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                            <svg id="icon-widget" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay">
-                                <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
-                                <polygon points="12 15 17 21 7 21 12 15"></polygon>
-                            </svg>
-                            <span class="nav-text">Widget</span>
-                        </a></li>
+							<svg id="icon-widget" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+							<span class="nav-text">Widget</span>
+						</a></li>
                     <li class="nav-label">Forms</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span class="nav-text">Forms</span>
-                        </a>
+							<svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+							<span class="nav-text">Forms</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./form-element.html">Form Elements</a></li>
                             <li><a href="./form-wizard.html">Wizard</a></li>
@@ -342,14 +297,9 @@
                     </li>
                     <li class="nav-label">Table</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-table" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server">
-                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                                <line x1="6" y1="6" x2="6" y2="6"></line>
-                                <line x1="6" y1="18" x2="6" y2="18"></line>
-                            </svg>
-                            <span class="nav-text">Table</span>
-                        </a>
+							<svg id="icon-table" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg>
+							<span class="nav-text">Table</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
                             <li><a href="table-datatable-basic.html">Datatable</a></li>
@@ -358,14 +308,9 @@
 
                     <li class="nav-label">Extra</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <svg id="icon-pages" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                            <span class="nav-text">Pages</span>
-                        </a>
+							<svg id="icon-pages" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+							<span class="nav-text">Pages</span>
+						</a>
                         <ul aria-expanded="false">
                             <li><a href="./page-register.html">Register</a></li>
                             <li><a href="./page-login.html">Login</a></li>
@@ -388,16 +333,16 @@
             Sidebar end
         ***********************************-->
 
-
-
+		
+		
         <!--**********************************
             Content body start
         ***********************************-->
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-
-                @yield('content')
+				    
+               @yield('content')
 
             </div>
         </div>
@@ -418,7 +363,7 @@
             Footer end
         ***********************************-->
 
-        <!--**********************************
+		<!--**********************************
            Support ticket button start
         ***********************************-->
 
@@ -437,7 +382,7 @@
     ***********************************-->
     <!-- Required vendors -->
     <script src="./vendor/global/global.min.js"></script>
-    <script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="./js/custom.min.js"></script>
 
     <!-- Vectormap -->
@@ -450,24 +395,23 @@
     <!-- Chartist -->
     <script src="./vendor/chartist/js/chartist.min.js"></script>
     <script src="./vendor/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-
+	
     <!-- Flot -->
     <script src="./vendor/flot/jquery.flot.js"></script>
     <script src="./vendor/flot/jquery.flot.resize.js"></script>
     <script src="./vendor/flot-spline/jquery.flot.spline.min.js"></script>
-
+	
     <!-- Counter Up -->
     <script src="./vendor/waypoints/jquery.waypoints.min.js"></script>
     <script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
 
-    <!-- Demo scripts -->
+	<!-- Demo scripts -->
     <script src="./js/dashboard/dashboard-1.js"></script>
 
-    <!-- Svganimation scripts -->
+	<!-- Svganimation scripts -->
     <script src="./vendor/svganimation/vivus.min.js"></script>
     <script src="./vendor/svganimation/svg.animation.js"></script>
     <script src="./js/styleSwitcher.js"></script>
 
 </body>
-
 </html>

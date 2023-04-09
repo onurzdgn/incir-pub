@@ -6,7 +6,7 @@
 <div class="container ms-1">
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Yeni ürün ekle</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Yeni Ürün Ekle</button>
         </div>
     </div>
 </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                <button type="button" class="btn btn-primary">Kayıt Et</button>
+                <button type="button" class="btn btn-primary">Ürün EKle</button>
             </div>
         </div>
     </div>

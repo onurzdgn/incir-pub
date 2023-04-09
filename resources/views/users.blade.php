@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-Users
+<x-breadcrump title="Kullanıcılar" />
        
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-Catwories
+<x-breadcrump title="Kategoriler" />
        
 @endsection

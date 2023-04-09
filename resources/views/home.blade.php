@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-Home
+<x-breadcrump title="Anasayfa" />
+
        
 @endsection

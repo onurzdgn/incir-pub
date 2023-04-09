@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-Products
+<x-breadcrump title="Ürünler" />
        
 @endsection

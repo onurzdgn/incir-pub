@@ -22,24 +22,26 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Ürün Adı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="productName" class="col-form-label">Ürün Adı:</label>
+                        <input type="text" class="form-control" id="productName" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Ürün Bilgisi:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="productInfo" class="col-form-label">Ürün Bilgisi:</label>
+                        <input type="text" class="form-control" id="productInfo" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Ürün Fotoğrafı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="productPic" class="col-form-label">Ürün Fotoğrafı:</label>
+                        <input type="file" class="form-control" id="productPic" accept="image/png, image/gif, image/jpeg">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Ürün Kategorisi:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="productCategory" class="col-form-label">Ürün Kategorisi:</label>
+                        <select class="form-control" id="productCategory">
+
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Ürün Fiyatı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="productPrice" class="col-form-label">Ürün Fiyatı:</label>
+                        <input type="text" class="form-control" id="productPrice" autocomplete="false">
                     </div>
                 </form>
             </div>

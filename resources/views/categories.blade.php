@@ -22,12 +22,12 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Kategori Adı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="categoryName" class="col-form-label">Kategori Adı:</label>
+                        <input type="text" class="form-control" id="categoryName" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Kategori Adı(İngilizce):</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="categoryNameEng" class="col-form-label">Kategori Adı(İngilizce):</label>
+                        <input type="text" class="form-control" id="categoryNameEng" autocomplete="false">
                     </div>
                 </form>
             </div>

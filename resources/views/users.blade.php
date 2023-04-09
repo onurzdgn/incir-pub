@@ -22,28 +22,28 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Kullanıcı Giriş Adı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="userLoginName" class="col-form-label">Kullanıcı Giriş Adı:</label>
+                        <input type="text" class="form-control" id="userLoginName" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Kullanıcı Adı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="userName" class="col-form-label">Kullanıcı Adı:</label>
+                        <input type="text" class="form-control" id="userName" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Kullanıcı Soyadı:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="userSurname" class="col-form-label">Kullanıcı Soyadı:</label>
+                        <input type="text" class="form-control" id="userSurname" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Kullanıcı Telefonu:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="userPhone" class="col-form-label">Kullanıcı Telefonu:</label>
+                        <input type="text" class="form-control" id="userPhone" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Kullanıcı Rütbe:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="userRank" class="col-form-label">Kullanıcı Rütbe:</label>
+                        <input type="text" class="form-control" id="userRank" autocomplete="false">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Kullanıcı Şifresi:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="userPassword" class="col-form-label">Kullanıcı Şifresi:</label>
+                        <input type="password" class="form-control" id="userPassword" autocomplete="false">
                     </div>
                 </form>
             </div>

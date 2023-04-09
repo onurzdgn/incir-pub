@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-// Route::get('categories', function () {
-//     return view('categories');
-// });
+Route::get('categories', [CategoriesController::class, 'index']);
 
-// Route::get('products', function () {
-//     return view('products');
-// });
+Route::get('products', [ProductsController::class, 'index']);
 
-// Route::get('users', function () {
-//     return view('users');
-// });
+Route::get('users', [UsersController::class, 'index']);

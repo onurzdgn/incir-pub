@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-Home
+Products
        
 @endsection

@@ -39,7 +39,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="userRank" class="col-form-label">Kullanıcı Rütbe:</label>
-                        <input type="text" class="form-control" id="userRank" autocomplete="false">
+                        <select name="userRank" id="userRank">
+                            <option value="1">Admin</option>
+                            <option value="2">Sahip</option>
+                            <option value="3">Kullanıcı</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="userPassword" class="col-form-label">Kullanıcı Şifresi:</label>

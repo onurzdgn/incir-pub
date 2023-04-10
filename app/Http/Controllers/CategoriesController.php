@@ -28,10 +28,4 @@ class CategoriesController extends Controller
         return view('categories');
     }
 
-    public function api()
-    {
-        $categories = Categories::all();
-        return response()->json($categories);
-    }
-
 }

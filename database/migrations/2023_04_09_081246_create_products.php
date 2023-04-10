@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('info')->nullable();
             $table->string('image')->nullable();
             $table->integer('category_id');
-            $table->string('ingredients');
+            $table->string('ingredients')->nullable();
             $table->integer('price');
             $table->integer('is_active')->default(1);
             $table->timestamps();

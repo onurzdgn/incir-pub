@@ -23,5 +23,6 @@ Route::get('categories', [CategoriesController::class, 'index']);
 Route::post('addUser', [CategoriesController::class, 'addUser'])->name('addUser');
 
 Route::get('products', [ProductsController::class, 'index']);
+Route::post('addProduct', [ProductsController::class, 'addProduct'])->name('addProduct');
 
 Route::get('users', [UsersController::class, 'index']);

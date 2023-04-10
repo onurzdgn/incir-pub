@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('eng_name');
-            $table->integer('user_id');
             $table->integer('is_active')->default(1);
             $table->timestamps();
         });

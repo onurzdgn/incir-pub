@@ -11,6 +11,33 @@
     </div>
 </div>
 
+<div class="container mt-5 ms-1">
+    <div class="row">
+        <div class="col">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Kategori Adı</th>
+                        <th>Kategori Adı(İngilizce)</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($categories as $category)
+                    <tr>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->eng_name }}</td>
+                        <td>
+                            <a href="#" class="btn btn-primary">Düzenle</a>
+                            <a href="#" class="btn btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -20,23 +47,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="POST" action="{{ url('addUser') }}">
+                    {{ csrf_field() }}
                     <div class="mb-3">
                         <label for="categoryName" class="col-form-label">Kategori Adı:</label>
-                        <input type="text" class="form-control" id="categoryName" autocomplete="false">
+                        <input type="text" class="form-control" id="categoryName" name="categoryName" required>
                     </div>
                     <div class="mb-3">
                         <label for="categoryNameEng" class="col-form-label">Kategori Adı(İngilizce):</label>
-                        <input type="text" class="form-control" id="categoryNameEng" autocomplete="false">
+                        <input type="text" class="form-control" id="categoryNameEng" name="categoryNameEng" required>
                     </div>
+                    <button type="submit" class="btn btn-submit btn-primary">Kategori Ekle</button>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                <button type="button" class="btn btn-primary">Kategori Ekle</button>
             </div>
         </div>
     </div>
 </div>
-       
+
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+</script>
+
 @endsection

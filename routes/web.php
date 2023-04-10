@@ -20,6 +20,7 @@ use App\Http\Controllers\UsersController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('categories', [CategoriesController::class, 'index']);
+Route::post('addUser', [CategoriesController::class, 'addUser'])->name('addUser');
 
 Route::get('products', [ProductsController::class, 'index']);
 

@@ -37,7 +37,7 @@
             </table>
         </div>
     </div>
-
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -65,9 +65,9 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    $('#example').DataTable();
-});
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
 </script>
 
 @endsection

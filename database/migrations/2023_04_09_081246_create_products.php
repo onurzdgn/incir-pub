@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('ingredients');
             $table->integer('price');
-            $table->integer('user_id');
             $table->integer('is_active')->default(1);
             $table->timestamps();
         });

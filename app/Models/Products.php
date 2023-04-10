@@ -24,7 +24,6 @@ class Product extends Model
         'categorie_id',
         'ingredients',
         'price',
-        'user_id',
         'is_active',
     ];
 }

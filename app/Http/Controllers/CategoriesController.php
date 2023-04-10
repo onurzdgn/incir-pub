@@ -25,7 +25,7 @@ class CategoriesController extends Controller
         $categorie->is_active = 1;
         $categorie->save();
 
-        return view('categories');
+        return redirect('categories');
     }
 
 }

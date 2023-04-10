@@ -20,22 +20,21 @@ class ProductsController extends Controller
     {
         $productName = $request->input('productName');
         $productInfo = $request->input('productInfo');
-        $productImage = $request->input('productPic');
+        $productImage = $request->file('productPic')->extension();
         $productCategory = $request->input('productCategory');
         $productIngredients = $request->input('productIngredients');
         $productPrice = (int) $request->input('productPrice');
 
-        dd($productName, $productInfo, $productImage, $productCategory, $productIngredients, $productPrice);
 
-        $product = new Products;
-        $product->name = $productName;
-        $product->info = $productInfo;
-        $product->image = $productImage;
-        $product->category_id = $productCategory;
-        $product->ingredients = $productIngredients;
-        $product->price = $productPrice;
-        $product->is_active = 1;
-        $product->save();
+        // $product = new Products;
+        // $product->name = $productName;
+        // $product->info = $productInfo;
+        // $product->image = $productImage;
+        // $product->category_id = $productCategory;
+        // $product->ingredients = $productIngredients;
+        // $product->price = $productPrice;
+        // $product->is_active = 1;
+        // $product->save();
 
         return redirect('products');
     }

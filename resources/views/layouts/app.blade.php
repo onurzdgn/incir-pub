@@ -32,6 +32,7 @@
             <!-- Content -->
             <div class="col py-3">
                 @yield('content')
+                @include('sweetalert::alert')
             </div>
             <!-- End of Content -->
         </div>

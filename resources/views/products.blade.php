@@ -13,13 +13,16 @@
 
 <div class="container mt-5 ms-1">
     <div class="row">
-        <div class="col">
+        <div class="col p-1" style="background-color:#e6d8cc;">
             <table id="example" class="table table-striped table-bordered-black" style="width:100%; background-color:#e6d8cc;">
                 <thead>
                     <tr>
                         <th>Ürün Adı</th>
                         <th>Ürün Bilgisi</th>
                         <th>Ürün Resmi</th>
+                        <th>Ürün Kategorisi</th>
+                        <th>Ürün İçerikleri</th>
+                        <th>Ürün Fiyatı</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -27,8 +30,17 @@
                     @foreach ($products as $product)
                     <tr>
                         <td>{{ $product->name }}</td>
-                        <td>{{ $product->info }}</td>
-                        <td>{{ $product->pic }}</td>
+                        <td>{{ $product->info ?? 'Bilgi yok'}}</td>
+                        <td><img src="publicImages/products/{{ $product->image }}" alt="" height="100px"></td>
+                        <td>
+                            @foreach ($categories as $category)
+                                @if ($category->id == $product->category_id)
+                                    {{ $category->name }}
+                                @endif
+                            @endforeach
+                        </td>
+                        <td>{{ $product->ingredients }}</td>
+                        <td>{{ $product->price }}₺</td>
                         <td>
                             <a href="#" class="btn btn-primary">Düzenle</a>
                             <a href="#" class="btn btn-danger">Sil</a>
@@ -50,7 +62,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url('addProduct') }}">
+                <form method="POST" action="{{ url('addProduct') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="mb-3">
                         <label for="productName" class="col-form-label">Ürün Adı:</label>
@@ -58,11 +70,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="productInfo" class="col-form-label">Ürün Bilgisi:</label>
-                        <input type="text" class="form-control" id="productInfo" name="productInfo" required>
+                        <input type="text" class="form-control" id="productInfo" name="productInfo">
                     </div>
                     <div class="mb-3">
-                        <label for="productPic" class="col-form-label">Ürün Fotoğrafı:</label>
-                        <input type="file" class="form-control" id="productPic" accept="image/png, image/gif, image/jpeg" name="productPic">
+                        <label for="productPic" class="col-form-label">Ürün Fotoğrafı:</label><br>
+                        <input type="file" class="form-control-file" id="productPic" name="productPic" accept="image/png, image/gif, image/jpeg">
                     </div>
                     <div class="mb-3">
                         <label for="productCategory" class="col-form-label">Ürün Kategorisi:</label>
@@ -76,22 +88,29 @@
                     <div class="mb-3">
                         <label for="productIngredients" class="col-form-label">Ürün İçerikleri:</label>
                         <input type="text" class="form-control" id="productIngredients" name="productIngredients">
-                    <div class="mb-3">
-                        <label for="productPrice" class="col-form-label">Ürün Fiyatı:</label>
-                        <input type="text" class="form-control" id="productPrice" name="productPrice" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-submit">Ürün EKle</button>
+                        <div class="mb-3">
+                            <label for="productPrice" class="col-form-label">Ürün Fiyatı:</label>
+                            <input type="text" class="form-control" id="productPrice" name="productPrice" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Ürün Ekle</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <script>
-    $(document).ready(function () {
-    $('#example').DataTable();
-});
+    $(document).ready(function() {
+        $('#example').DataTable(
+            {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                }
+            }
+        );
+    });
 </script>
 
 @endsection

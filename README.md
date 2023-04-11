@@ -13,6 +13,15 @@ In this project, a web application that manages a pub menu is developed. With th
 <li> <a href="https://realrashid.github.io/sweet-alert/">Sweet Alert</a> </li>
 </ul>
 
+## To be added
+<ul>
+<li> Secure login system </li>
+<li> User management </li>
+<li> Visit frequency on the main screen </li>
+<li> Product sorting feature </li>
+<li> Category sorting feature </li>
+</ul>
+
 <br><br>
 <hr>
 <br><br>
@@ -28,4 +37,13 @@ Bu projede, bir pub menüsünün yönetimini sağlayan bir web uygulaması geli�
 <li> <a href="https://laravel.com/">Laravel 10</a> </li>
 <li> <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap</a> </li>
 <li> <a href="https://realrashid.github.io/sweet-alert/">Sweet Alert</a> </li>
+</ul>
+
+## Eklenecekler
+<ul>
+<li> Güvenli giriş sistemi </li>
+<li> Kullanıcı yönetimi </li>
+<li> Ana ekranda ziyaret sıklığı</li>
+<li> Ürün sıralama özelliği </li>
+<li> Kategori sıralama özelliği </li>
 </ul>

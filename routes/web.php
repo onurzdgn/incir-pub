@@ -18,6 +18,7 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('login', [HomeController::class, 'login']);
 
 Route::get('categories', [CategoriesController::class, 'index']);
 Route::post('addUser', [CategoriesController::class, 'addUser'])->name('addUser');

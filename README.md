@@ -19,6 +19,7 @@ In this project, a web application that manages a pub menu is developed. With th
 <li> User management </li>
 <li> Visit frequency on the main screen </li>
 <li> Product sorting feature </li>
+<li> Product search feature </li>
 <li> Category sorting feature </li>
 </ul>
 
@@ -45,5 +46,6 @@ Bu projede, bir pub menüsünün yönetimini sağlayan bir web uygulaması geli�
 <li> Kullanıcı yönetimi </li>
 <li> Ana ekranda ziyaret sıklığı</li>
 <li> Ürün sıralama özelliği </li>
+<li> Ürün arama özelliği </li>
 <li> Kategori sıralama özelliği </li>
 </ul>

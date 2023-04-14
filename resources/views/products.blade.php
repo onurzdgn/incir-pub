@@ -17,6 +17,7 @@
             <table id="example" class="table table-striped table-bordered-black" style="width:100%; background-color:#e6d8cc;">
                 <thead>
                     <tr>
+                        <th>Ürün ID</th>
                         <th>Ürün Adı</th>
                         <th>Ürün Bilgisi</th>
                         <th>Ürün Resmi</th>
@@ -29,6 +30,7 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
+                        <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->info ?? 'Bilgi yok'}}</td>
                         <td><img src="publicImages/products/{{ $product->image }}" alt="" height="100px"></td>
@@ -108,7 +110,9 @@
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
                 }
-            }
+            },
+            {
+                "order": [[ 0, "asc" ]]}
         );
     });
 </script>

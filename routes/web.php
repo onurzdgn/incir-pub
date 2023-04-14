@@ -25,5 +25,7 @@ Route::post('addUser', [CategoriesController::class, 'addUser'])->name('addUser'
 
 Route::get('products', [ProductsController::class, 'index']);
 Route::post('addProduct', [ProductsController::class, 'addProduct'])->name('addProduct');
+Route::get('deleteProduct/{id}', [ProductsController::class, 'deleteProduct']);
+Route::get('editProduct/{id}', [ProductsController::class, 'editProduct']);
 
 Route::get('users', [UsersController::class, 'index']);

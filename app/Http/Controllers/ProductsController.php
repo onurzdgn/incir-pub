@@ -13,7 +13,7 @@ class ProductsController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        $products = Products::all();
+        $products = Products::all()->sortByDesc('id');
 
         
 
@@ -49,6 +49,25 @@ class ProductsController extends Controller
 
         return redirect('products')->with('success', 'Ürün başarıyla eklendi.');
         
+    }
+
+    public function deleteProduct($id)
+    {
+        $product = Products::find($id);
+        
+        $product->update(['is_active' => 0]);
+
+        return redirect('products')->with('success', 'Ürün başarıyla silindi.');
+    }
+
+    public function editProduct($id)
+    {
+        $product = Products::find($id);
+        $categories = Categories::all();
+        
+        
+
+        return view('editProduct', compact('product', 'categories'));
     }
 
 }

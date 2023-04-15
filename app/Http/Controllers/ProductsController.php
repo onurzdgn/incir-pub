@@ -51,6 +51,16 @@ class ProductsController extends Controller
         
     }
 
+    public function product($id)
+    {
+        $product = Products::find($id);
+        $categories = Categories::all();
+        $category = Categories::find($product->category_id);
+        $product->category = $category->name;
+        // dd($product['image']);
+        return view('product', compact('product', 'categories'));
+    }
+
     public function deleteProduct($id)
     {
         $product = Products::find($id);

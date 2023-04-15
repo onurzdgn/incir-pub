@@ -38,14 +38,10 @@
         </div>
     </div>
     <div class="col-5">
-        @if($product['image'])
-        <img src="/publicImages/products/{{ $product['image'] }}" alt="" height="600px">
-        @else
-        <img src="/publicImages/products/default.png" alt="no image" height="600px">
-        @endif
+        <img src="/publicImages/products/{{ $product['image'] }}" alt="No image😢" height="600px">
     </div>
     <div class="col-2">
-        <button type="button" class="btn btn-danger">Ürünü Sil</button>
+        <button type="button" class="btn btn-danger m-2 p-3">Ürünü Sil</button>
     </div>
 </div>
 

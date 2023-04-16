@@ -32,8 +32,15 @@ class ProductsController extends Controller
         $productCategory = $request->input('productCategory');
         $productIngredients = $request->input('productIngredients');
         $productPrice = (int) $request->input('productPrice');
-        $productPic = $request->file('productPic');
-        $imageName = $productPic->getClientOriginalName();
+
+        if ($request->hasFile('productPic')) {
+            $productPic = $request->file('productPic');
+            $imageName = $productPic->getClientOriginalName();
+            $productPic->move(public_path('publicImages/products'), $imageName);
+        }else {
+            $productPic = null;
+            $imageName = null;
+        }
 
         $product = new Products;
         $product->name = $productName;
@@ -44,8 +51,6 @@ class ProductsController extends Controller
         $product->price = $productPrice;
         $product->is_active = 1;
         $product->save();
-
-        $productPic->move(public_path('publicImages/products'), $imageName);
 
         return redirect('products')->with('success', 'Ürün başarıyla eklendi.');
         
@@ -64,13 +69,13 @@ class ProductsController extends Controller
     public function deleteProduct($id)
     {
         $product = Products::find($id);
-        
+
         $product->update(['is_active' => 0]);
 
         return redirect('products')->with('success', 'Ürün başarıyla silindi.');
     }
 
-    public function editProduct($id)
+    public function updateProduct($id)
     {
         $product = Products::find($id);
         $categories = Categories::all();

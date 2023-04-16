@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-5" style="background-color: #e6d8cc;">
-            <form method="POST" action="{{ url('addProduct') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('updateProduct') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="mb-3">
                     <label for="productName" class="col-form-label">Ürün Adı:</label>
@@ -38,10 +38,26 @@
         </div>
     </div>
     <div class="col-5">
-        <img src="/publicImages/products/{{ $product['image'] }}" alt="No image😢" height="600px">
+        <img src="/publicImages/products/{{ $product['image'] }}" alt="Görsel yok 😢" height="600px">
     </div>
     <div class="col-2">
-        <button type="button" class="btn btn-danger m-2 p-3">Ürünü Sil</button>
+        <button type="button" class="btn btn-danger m-2 p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Ürünü Sil
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                Ürün Silinecek Emin Misiniz? 😱
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaz Geçtim, Kapat</button>
+                <a type="button" class="btn btn-danger" href="/deleteProduct/{{$product['id']}}">Evet Sil</a>
+            </div>
+        </div>
     </div>
 </div>
 

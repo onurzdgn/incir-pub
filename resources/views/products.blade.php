@@ -92,11 +92,20 @@
                         <td>
                             <a class="btn btn-primary" href="/product/{{ $product->id }}"><i class="bi bi-pen"></i></a>
                         </td>
-                        
+
                     </tr>
                     @endif
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th><input type="number" placeholder="ID" style="width: 70px;"></th>
+                        <th><input type="text" placeholder="Ürün Adı"></th>
+                        <th>Ürün Bilgisi</th>
+                        <th></th>
+                        <th>Ürün Kategorisi</th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -111,6 +120,7 @@
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <script>
     $(document).ready(function() {
+
         $('#example').DataTable({
             language: {
                 "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
@@ -122,6 +132,59 @@
                 orderable: false,
                 targets: [7]
             }],
+            initComplete: function() {
+                this.api()
+                    .columns(0, 1, 5, 6)
+                    .every(function() {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change clear', function() {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+                this.api()
+                    .columns(4)
+                    .every(function() {
+                        var column = this;
+                        var select = $('<select><option value="">Ürün Kategorisi</option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+                            });
+
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    });
+                this.api()
+                    .columns(2)
+                    .every(function() {
+                        var column = this;
+                        var select = $('<select><option value="">Ürün Bilgisi</option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+                            });
+
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    });
+            },
         });
     });
 </script>

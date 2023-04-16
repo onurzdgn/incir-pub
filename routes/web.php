@@ -28,7 +28,7 @@ Route::controller('products', ProductsController::class)->group(function () {
     Route::post('addProduct', [ProductsController::class, 'addProduct'])->name('addProduct');
     Route::get('product/{id}', [ProductsController::class, 'product']);
     Route::get('deleteProduct/{id}', [ProductsController::class, 'deleteProduct']);    
-    Route::get('updateProduct/{id}', [ProductsController::class, 'updateProduct']);    
+    Route::post('updateProduct', [ProductsController::class, 'updateProduct']);    
 });
 
 // Route::get('products', [ProductsController::class, 'index']);

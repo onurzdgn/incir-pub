@@ -75,14 +75,37 @@ class ProductsController extends Controller
         return redirect('products')->with('success', 'Ürün başarıyla silindi.');
     }
 
-    public function updateProduct($id)
+    public function updateProduct()
     {
+        $id = request('id');
+        $productName = request('productName');
+        $productInfo = request('productInfo');
+        $productCategory = request('productCategory');
+        $productIngredients = request('productIngredients');
+        $productPrice = (int) request('productPrice');
+        $picControl = request('productPic2');
+
+        if (!empty(request()->hasFile('productPic'))) {
+            $productPic = request()->file('productPic');
+            $imageName = $productPic->getClientOriginalName();
+            $productPic->move(public_path('publicImages/products'), $imageName);
+        }elseif ($picControl) {
+            $imageName = $picControl;
+        } 
+
         $product = Products::find($id);
         $categories = Categories::all();
         
-        
+        $product->name = $productName;
+        $product->info = $productInfo;
+        $product->image = $imageName;
+        $product->category_id = $productCategory;
+        $product->ingredients = $productIngredients;
+        $product->price = $productPrice;
+        $product->is_active = 1;
+        $product->update();
 
-        return view('editProduct', compact('product', 'categories'));
+        return redirect('products')->with('success', 'Ürün başarıyla güncellendi.');
     }
 
 }

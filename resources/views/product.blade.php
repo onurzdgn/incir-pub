@@ -6,6 +6,7 @@
         <div class="col-5" style="background-color: #e6d8cc;">
             <form method="POST" action="{{ url('updateProduct') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{ $product['id'] }}">
                 <div class="mb-3">
                     <label for="productName" class="col-form-label">Ürün Adı:</label>
                     <input type="text" class="form-control" id="productName" name="productName" required value="{{ $product['name'] }}">
@@ -16,7 +17,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="productPic" class="col-form-label">Ürün Fotoğrafı:</label><br>
+                    @if ($product['image'] == null)
                     <input type="file" class="form-control-file" id="productPic" name="productPic" accept="image/png, image/gif, image/jpeg">
+                    @else
+                    <input type="file" class="form-control-file" id="productPic" name="productPic" accept="image/png, image/gif, image/jpeg">
+                    <input type="hidden" name="productPic2" id="productPic" value="{{ $product['image'] }}">
+                    @endif
                 </div>
                 <div class="mb-3">
                     <label for="productCategory" class="col-form-label">Ürün Kategorisi:</label>
@@ -33,12 +39,12 @@
                         <label for="productPrice" class="col-form-label">Ürün Fiyatı:</label>
                         <input type="text" class="form-control" id="productPrice" name="productPrice" required value="{{ $product['price'] }}">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-submit">Ürün Ekle</button>
+                    <button type="submit" class="btn btn-primary btn-submit">Ürün Güncelle</button>
             </form>
         </div>
     </div>
     <div class="col-5">
-        <img src="/publicImages/products/{{ $product['image'] }}" alt="Görsel yok 😢" height="600px">
+        <img src="/publicImages/products/{{ $product['image'] }}" alt="Görsel yok 😢" height="600px" width="540px">
     </div>
     <div class="col-2">
         <button type="button" class="btn btn-danger m-2 p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">

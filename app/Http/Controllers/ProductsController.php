@@ -85,6 +85,13 @@ class ProductsController extends Controller
         $productPrice = (int) request('productPrice');
         $picControl = request('productPic2');
 
+       
+
+        $product = Products::find($id);
+        $categories = Categories::all();
+        
+        $product->name = $productName;
+        $product->info = $productInfo;
         if (!empty(request()->hasFile('productPic'))) {
             $productPic = request()->file('productPic');
             $imageName = $productPic->getClientOriginalName();
@@ -92,13 +99,6 @@ class ProductsController extends Controller
         }elseif ($picControl) {
             $imageName = $picControl;
         } 
-
-        $product = Products::find($id);
-        $categories = Categories::all();
-        
-        $product->name = $productName;
-        $product->info = $productInfo;
-        $product->image = $imageName;
         $product->category_id = $productCategory;
         $product->ingredients = $productIngredients;
         $product->price = $productPrice;

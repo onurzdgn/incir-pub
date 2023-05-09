@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,10 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [MenuController::class, 'index']);
+
+
+Route::get('home', [HomeController::class, 'index']);
 Route::get('login', [HomeController::class, 'login']);
 
 Route::get('categories', [CategoriesController::class, 'index']);

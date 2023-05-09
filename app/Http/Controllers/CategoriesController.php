@@ -17,7 +17,7 @@ class CategoriesController extends Controller
             Alert::toast(session('success'), 'success');
         }
 
-        return view('categories', compact('categories'));
+        return view('control-panel.categories', compact('categories'));
     }
 
     public function addUser(Request $request)
@@ -31,7 +31,7 @@ class CategoriesController extends Controller
         $categorie->is_active = 1;
         $categorie->save();
 
-        return redirect('categories')->with('success', 'Kategori başarıyla eklendi.');
+        return redirect('control-panel.categories')->with('success', 'Kategori başarıyla eklendi.');
     }
 
 }

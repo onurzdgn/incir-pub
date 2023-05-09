@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('control-panel.layouts.app')
 @section('content')
 
 <x-breadcrump title="Kullanıcılar" />

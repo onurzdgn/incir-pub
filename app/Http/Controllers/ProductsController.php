@@ -21,7 +21,7 @@ class ProductsController extends Controller
             Alert::toast(session('success'), 'success');
         }
 
-        return view('products', compact('categories', 'products'));
+        return view('control-panel.products', compact('categories', 'products'));
     }
 
     public function addProduct(Request $request)
@@ -52,7 +52,7 @@ class ProductsController extends Controller
         $product->is_active = 1;
         $product->save();
 
-        return redirect('products')->with('success', 'Ürün başarıyla eklendi.');
+        return redirect('control-panel.products')->with('success', 'Ürün başarıyla eklendi.');
         
     }
 
@@ -63,7 +63,7 @@ class ProductsController extends Controller
         $category = Categories::find($product->category_id);
         $product->category = $category->name;
         // dd($product['image']);
-        return view('product', compact('product', 'categories'));
+        return view('control-panel.product', compact('product', 'categories'));
     }
 
     public function deleteProduct($id)
@@ -72,7 +72,7 @@ class ProductsController extends Controller
 
         $product->update(['is_active' => 0]);
 
-        return redirect('products')->with('success', 'Ürün başarıyla silindi.');
+        return redirect('control-panel.products')->with('success', 'Ürün başarıyla silindi.');
     }
 
     public function updateProduct()
@@ -105,7 +105,7 @@ class ProductsController extends Controller
         $product->is_active = 1;
         $product->update();
 
-        return redirect('products')->with('success', 'Ürün başarıyla güncellendi.');
+        return redirect('control-panel.products')->with('success', 'Ürün başarıyla güncellendi.');
     }
 
 }

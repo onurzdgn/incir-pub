@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('control-panel.home');
+        return view('home');
     }
     public function login()
     {

@@ -1,4 +1,4 @@
-@extends('control-panel.layouts.app')
+@extends('layouts.app')
 @section('content')
 
 <x-breadcrump title="Kategoriler" />

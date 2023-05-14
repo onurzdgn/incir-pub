@@ -18,10 +18,10 @@ use App\Http\Controllers\MenuController;
 |
 */
 
-Route::get('/', [MenuController::class, 'index']);
 
 
-Route::get('home', [HomeController::class, 'index']);
+
+Route::get('/', [HomeController::class, 'index']);
 Route::get('login', [HomeController::class, 'login']);
 
 Route::get('categories', [CategoriesController::class, 'index']);

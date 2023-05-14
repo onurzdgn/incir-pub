@@ -20,7 +20,7 @@ class CategoriesController extends Controller
         return view('categories', compact('categories'));
     }
 
-    public function addUser(Request $request)
+    public function addCategory(Request $request)
     {
         $catName = $request->input('categoryName');
         $catNameEng = $request->input('categoryNameEng');

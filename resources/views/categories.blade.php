@@ -47,7 +47,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url('addUser') }}">
+                <form method="POST" action="{{ url('addCategory') }}">
                     {{ csrf_field() }}
                     <div class="mb-3">
                         <label for="categoryName" class="col-form-label">Kategori Adı:</label>

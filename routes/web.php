@@ -25,7 +25,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('login', [HomeController::class, 'login']);
 
 Route::get('categories', [CategoriesController::class, 'index']);
-Route::post('addUser', [CategoriesController::class, 'addUser'])->name('addUser');
+Route::post('addCategory', [CategoriesController::class, 'addCategory'])->name('addCategory');
 
 Route::controller('products', ProductsController::class)->group(function () {
     Route::get('products', [ProductsController::class, 'index']);
@@ -44,4 +44,11 @@ Route::controller('products', ProductsController::class)->group(function () {
 // Route::get('editProduct/{id}', [ProductsController::class, 'editProduct']);
 // Route::post('updateProduct/{id}', [ProductsController::class, 'updateProduct'])->name('updateProduct');
 
-Route::get('users', [UsersController::class, 'index']);
+Route::controller(UsersController::class)->group(function () {
+    Route::get('users', 'index');
+    Route::post('addUser', 'addUser')->name('addUser');
+    Route::get('deleteUser/{id}', 'deleteUser');
+    Route::get('editUser/{id}', 'editUser');
+    Route::post('updateUser/{id}', 'updateUser')->name('updateUser');
+});
+

@@ -24,25 +24,21 @@ use App\Http\Controllers\MenuController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('login', [HomeController::class, 'login']);
 
-Route::get('categories', [CategoriesController::class, 'index']);
-Route::post('addCategory', [CategoriesController::class, 'addCategory'])->name('addCategory');
-
-Route::controller('products', ProductsController::class)->group(function () {
-    Route::get('products', [ProductsController::class, 'index']);
-    Route::post('addProduct', [ProductsController::class, 'addProduct'])->name('addProduct');
-    Route::get('product/{id}', [ProductsController::class, 'product']);
-    Route::get('deleteProduct/{id}', [ProductsController::class, 'deleteProduct']);    
-    Route::post('updateProduct', [ProductsController::class, 'updateProduct']);    
+Route::controller(CategoriesController::class)->group(function () {
+    Route::get('categories', 'index');
+    Route::post('addCategory', 'addCategory')->name('addCategory');
+    Route::get('category/{id}', 'category');
+    Route::get('deleteCategory/{id}', 'deleteCategory');    
+    Route::post('updateCategory', 'updateCategory'); 
 });
 
-// Route::get('products', [ProductsController::class, 'index']);
-// Route::post('addProduct', [ProductsController::class, 'addProduct'])->name('addProduct');
-// Route::get('products/{id}', [ProductsController::class, 'products']);
-// Route::get('deleteProduct/{id}', [ProductsController::class, 'deleteProduct']);
-// Route::get('editProduct/{id}', [ProductsController::class, 'editProduct']);
-
-// Route::get('editProduct/{id}', [ProductsController::class, 'editProduct']);
-// Route::post('updateProduct/{id}', [ProductsController::class, 'updateProduct'])->name('updateProduct');
+Route::controller(ProductsController::class)->group(function () {
+    Route::get('products','index');
+    Route::post('addProduct','addProduct')->name('addProduct');
+    Route::get('product/{id}','product');
+    Route::get('deleteProduct/{id}','deleteProduct');    
+    Route::post('updateProduct','updateProduct');    
+});
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('users', 'index');

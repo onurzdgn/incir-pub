@@ -27,6 +27,7 @@ class UsersController extends Controller
         ]);
 
         return $validated;
+        
         $name = $request->input('name');
         $email = $request->input('email');
         $password = Hash::make($request->input('password'));

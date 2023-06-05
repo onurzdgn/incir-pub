@@ -28,7 +28,7 @@
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->eng_name }}</td>
                         <td>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-pen"></i></a>
+                            <a href="/category/{{ $category->id }}" class="btn btn-primary"><i class="bi bi-pen"></i></a>
                             <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>

@@ -5,8 +5,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
+        <div class="col-xxl-4 col-xl-4 col-l-4 col-4 col-m-4 col-s-4 col-xs-4 col-xxs-4">
+            <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">En Çok Ziyaret Edilen Sayfalar</h5>
                 </div>
@@ -21,8 +21,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
+        <div class="col-xxl-4 col-xl-4 col-l-4 col-4 col-m-4 col-s-4 col-xs-4 col-xxs-4">
+            <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">En Çok Zaman Geçirilen Sayfalar</h5>
                 </div>
@@ -37,8 +37,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
+        <div class="col-xxl-4 col-xl-4 col-l-4 col-4 col-m-4 col-s-4 col-xs-4 col-xxs-4">
+            <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">En Çok Ziyeret Eden Ülkeler</h5>
                 </div>

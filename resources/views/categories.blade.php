@@ -20,6 +20,7 @@
             <table id="categories" class="table table-striped table-bordered-black" style="width:100%; background-color:#e6d8cc;">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Kategori Adı</th>
                         <th>Kategori Adı(İngilizce)</th>
                         <th>Ana Kategori</th>
@@ -29,13 +30,14 @@
                 <tbody>
                     @foreach ($categories as $category)
                     <tr>
+                        <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->eng_name }}</td>
                         <td>
-                            @if ($category->parent_id == null)
+                            @if ($category->parent_name == null)
                             Ana Kategori
                             @else
-                            {{ $category->parent_id }}
+                            {{ $category->parent_name }}
                             @endif
                         <td>
                             <a href="/category/{{ $category->id }}" class="btn btn-primary"><i class="bi bi-pen"></i></a>

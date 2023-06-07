@@ -1,4 +1,4 @@
-@extends('control-panel.layouts.app')
+@extends('layouts.app')
 @section('content')
 
 <div class="container mt-5 ms-3 pt-5 d-flex justify-content-center">

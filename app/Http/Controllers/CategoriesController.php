@@ -34,4 +34,20 @@ class CategoriesController extends Controller
         return redirect('categories')->with('success', 'Kategori başarıyla eklendi.');
     }
 
+    public function addSubcategory(Request $request)
+    {
+        $catName = $request->input('categoryName');
+        $catNameEng = $request->input('categoryNameEng');
+        $catId = $request->input('categoryId');
+
+        $categorie = new Categories;
+        $categorie->name = $catName;
+        $categorie->eng_name = $catNameEng;
+        $categorie->is_active = 1;
+        $categorie->parent_id = $catId;
+        $categorie->save();
+
+        return redirect('categories')->with('success', 'Alt kategori başarıyla eklendi.');
+    }
+
 }

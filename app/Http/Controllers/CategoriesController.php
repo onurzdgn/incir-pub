@@ -59,9 +59,33 @@ class CategoriesController extends Controller
     public function category($id)
     {
         $category = Categories::find($id);
-        $categories = Categories::all();
+        $parentCategory = DB::table('categories')->where('id', $category->parent_id)->first();
+        $allCategories = Categories::where('parent_id', null)->get();
 
-        return view('category', compact('category', 'categories'));
+        return view('category', compact('category', 'parentCategory', 'allCategories'));
+    }
+
+    public function updateCategory(Request $request, $id)
+    {
+        $catName = $request->input('categoryName')->required();
+        $catNameEng = $request->input('categoryNameEng');
+        $parentCategory = $request->input('parentCategory');
+
+        $categorie = Categories::find($id);
+        $categorie->name = $catName;
+        $categorie->eng_name = $catNameEng;
+        $categorie->parent_id = $parentCategory;
+        $categorie->save();
+
+        return redirect('categories')->with('success', 'Kategori başarıyla güncellendi.');
+    }
+
+    public function deleteCategory($id)
+    {
+        $category = Categories::find($id);
+        // $category->delete();
+
+        return redirect('categories')->with('success', 'Kategori başarıyla silindi.');
     }
 
 }

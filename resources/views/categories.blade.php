@@ -41,7 +41,6 @@
                             @endif
                         <td>
                             <a href="/category/{{ $category->id }}" class="btn btn-primary"><i class="bi bi-pen"></i></a>
-                            <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach

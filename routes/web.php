@@ -29,7 +29,7 @@ Route::controller(CategoriesController::class)->group(function () {
     Route::post('addCategory', 'addCategory')->name('addCategory');
     Route::post('addSubcategory', 'addSubcategory')->name('addSubcategory');
     Route::get('category/{id}', 'category');
-    Route::get('deleteCategory/{id}', 'deleteCategory');    
+    Route::get('deleteCategory/{id}', 'deleteCategory');
     Route::post('updateCategory', 'updateCategory'); 
 });
 

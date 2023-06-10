@@ -65,14 +65,24 @@ class CategoriesController extends Controller
         return view('category', compact('category', 'parentCategory', 'allCategories'));
     }
 
-    public function updateCategory(Request $request, $id)
+    public function updateCategory(Request $request)
     {
-        $catName = $request->input('categoryName')->required();
-        $catNameEng = $request->input('categoryNameEng');
-        $parentCategory = $request->input('parentCategory');
+
+        $request->validate([
+            'categoryId' => 'required',
+            'categoryName' => 'required',
+            'engCategoryName' => 'nullable',
+            'mainCategory' => 'nullable',
+        ]);
+
+        // dd($request->input('categoryName'));
+        $id = $request->input('categoryId');
+        $categoryName = $request->input('categoryName');
+        $catNameEng = $request->input('engCategoryName');
+        $parentCategory = $request->input('mainCategory');
 
         $categorie = Categories::find($id);
-        $categorie->name = $catName;
+        $categorie->name = $categoryName;
         $categorie->eng_name = $catNameEng;
         $categorie->parent_id = $parentCategory;
         $categorie->save();

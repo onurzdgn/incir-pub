@@ -17,7 +17,8 @@
     <!-- All Categories Table -->
     <div class="container mt-5 ms-1">
         <div class="row">
-            <div class="col-xxl-12 col-xl-12 col-l-12 col-12 col-m-12 col-s-12 col-xs-12 col-xxs-12 p-1" style="background-color:#e6d8cc;">
+            <div class="col-xxl-12 col-xl-12 col-l-12 col-12 col-m-12 col-s-12 col-xs-12 col-xxs-12 p-1"
+                style="background-color:#e6d8cc;">
                 <table id="categories" class="table table-striped table-bordered-black display nowrap"
                     style="width:100%; background-color:#e6d8cc;">
                     <thead>
@@ -48,6 +49,14 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th><input type="number" placeholder="ID" style="width: 70px;"></th>
+                            <th><input type="text" placeholder="Ürün Adı"></th>
+                            <th><input type="text" placeholder="Ürün Adı"></th>
+                            <th>Ana Kategori</th>
+                            <th>İşlemler</th>
+                        </tr>
                 </table>
             </div>
         </div>
@@ -121,8 +130,47 @@
                 },
                 responsive: true,
                 language: {
-                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
-            }
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                },
+                initComplete: function() {
+                    this.api(0,1,2)
+                        .columns()
+                        .every(function() {
+                            var that = this;
+
+                            $('input', this.footer()).on('keyup change clear', function() {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                    this.api()
+                        .columns(3)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select><option value="">---Ürün Kategorisi---</option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        });
+
+                    
+
+                },
             });
         });
     </script>

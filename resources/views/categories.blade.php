@@ -3,13 +3,19 @@
     <x-breadcrump title="Kategoriler" />
 
     <!-- Modal Button -->
-    <div class="container ms-1">
-        <div class="row">
-            <div class="col">
+    <div class="container ms-1 mw-100">
+        <div class="row mb-1 mw-100">
+            <div class="col mw-100">
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoriesModal">Yeni Kategori
                     Ekle</button>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subcategoriesModal">Yeni Alt Kategori
                     Ekle</button>
+            </div>
+        </div>
+        <div class="row mt-1 mw-100">
+            <div class="col mw-100">
+                <a href="" class="btn btn-warning">Kategorileri Sırala</a>
+                <a href="" class="btn btn-warning">Alt Kategorileri Sırala</a>
             </div>
         </div>
     </div>
@@ -125,6 +131,13 @@
     <script>
         $(document).ready(function() {
             $('#categories').DataTable({
+                order: [
+                    [0, 'asc']
+                ],
+                columnDefs: [{
+                    orderable: false,
+                    targets: 4
+                }],
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
@@ -133,7 +146,7 @@
                     "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
                 },
                 initComplete: function() {
-                    this.api(0,1,2)
+                    this.api(0, 1, 2)
                         .columns()
                         .every(function() {
                             var that = this;
@@ -149,7 +162,8 @@
                         .every(function() {
                             var column = this;
                             var select = $(
-                                    '<select><option value="">---Ürün Kategorisi---</option></select>')
+                                    '<select><option value="">---Ürün Kategorisi---</option></select>'
+                                    )
                                 .appendTo($(column.footer()).empty())
                                 .on('change', function() {
                                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
@@ -168,7 +182,7 @@
                                 });
                         });
 
-                    
+
 
                 },
             });

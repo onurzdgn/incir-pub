@@ -12,12 +12,6 @@
                     Ekle</button>
             </div>
         </div>
-        <div class="row mt-1 mw-100">
-            <div class="col mw-100">
-                <a href="" class="btn btn-warning">Kategorileri Sırala</a>
-                <a href="" class="btn btn-warning">Alt Kategorileri Sırala</a>
-            </div>
-        </div>
     </div>
 
     <!-- All Categories Table -->

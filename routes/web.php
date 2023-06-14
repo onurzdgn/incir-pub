@@ -53,4 +53,5 @@ Route::controller(UsersController::class)->group(function () {
 Route::controller(OrderCategoriesController::class)->group(function () {
     Route::get('orderCategories', 'index');
     Route::get('orderableCategories', 'orderableCategories');
+    Route::get('orderableSubCategories/{id}', 'orderableSubCategories');
 });

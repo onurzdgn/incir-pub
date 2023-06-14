@@ -9,13 +9,23 @@ class OrderCategoriesController extends Controller
 {
     public function index()
     {
-        return view('orderCategories');
+        // $subcategories = Categories::where('parent_id', '===', null)->get();
+        $subcategories = Categories::whereNull('parent_id')->get();
+        return view('orderCategories', compact('subcategories'));
     }
 
     public function orderableCategories()
     {
         $categories = Categories::all();
-        // return view('orderCategories', compact('categories'));
         return $categories;
     }
+
+    public function orderableSubCategories($id)
+    {
+        // $id = $request->input('id');
+        // $subcategories = Categories::where('parent_id', '===', $id)->get();
+        $subcategories = Categories::where('parent_id', '=', $id)->get();
+        return $subcategories;
+    }
+    
 }

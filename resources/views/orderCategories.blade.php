@@ -61,7 +61,8 @@
             <div class="row mt-1 mw-100">
                 <div class="col mw-100">
                     <button id="categoryOrder" class="btn btn-warning">Kategorileri Sırala</button>
-                    <a href="" class="btn btn-warning">Alt Kategorileri Sırala</a>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#subcategoriesModal">Alt
+                        Kategorileri Sırala</button>
                 </div>
             </div>
         </div>
@@ -76,19 +77,43 @@
                 </ul>
             </div>
         </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <div class="modal fade" id="subcategoriesModal" tabindex="-1" aria-labelledby="subcategoriesModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subcategoriesModalLabel">Sıralamak İstediğin Alt Kategoriyi Seç</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-        <script type="application/javascript">
+                    <select class="form-control" id="subcategorySelect">
+                        <option value="0">Seçiniz</option>
+                        @foreach ($subcategories as $subcategory)
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script type="application/javascript">
             $(document).ready(function() {
+
+                // Get Categories
                 $('#categoryOrder').click(function() {
                     var list = document.getElementById("categoryList");
                     $.ajax({
                         url: "/orderableCategories",
                         type: "GET",
-                        
                         success: function(data) {
                             console.log(data);
+                            list.replaceChildren();
                             for (var i = 0; i < data.length; i++) {
                                 var li = document.createElement("li");
                                 li.appendChild(document.createTextNode(data[i].name));
@@ -102,6 +127,34 @@
                         }
                     });
                 });
+
+                // Get Subcategories
+                $('#subcategorySelect').change(function() {
+                    var list = document.getElementById("categoryList");
+                    var subcategory = document.getElementById("subcategorySelect").value;
+                    var subCategoryBox = document.getElementById("subcategorySelect");
+                    $.ajax({
+                        url: "/orderableSubCategories/" + subcategory,
+                        type: "GET",
+                        success: function(data) {
+                            console.log(data);
+                            list.replaceChildren();
+                            for (var i = 0; i < data.length; i++) {
+                                var li = document.createElement("li");
+                                li.appendChild(document.createTextNode(data[i].name));
+                                li.setAttribute("id", data[i].id);
+                                li.setAttribute("class", "list-group-item");
+                                list.appendChild(li);
+                            }
+                            subCategoryBox.value = 0;
+                            $('#subcategoriesModal').hide();
+                            $(".modal-backdrop").remove();
+                        },
+                        error: function(data) {
+                            alert("Hello! I am an alert box!");
+                        }
+                    });
+                });
             });
         </script>
-    @endsection
+@endsection

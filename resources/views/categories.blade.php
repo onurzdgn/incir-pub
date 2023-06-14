@@ -101,8 +101,12 @@
                     <form method="POST" action="{{ url('addSubcategory') }}">
                         {{ csrf_field() }}
                         <div class="mb-3">
-                            <label for="categoryName" class="col-form-label">Kategori Adı:</label>
+                            <label for="categoryName" class="col-form-label">Alt Kategori Adı:</label>
                             <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="engCategoryName" class="col-form-label">Alt Kategori Adı İngilizce:</label>
+                            <input type="text" class="form-control" id="engCategoryName" name="engCategoryName" required>
                         </div>
                         <div class="mb-3">
                             <label for="mainCategory" class="col-form-label">Ana Kategori:</label>

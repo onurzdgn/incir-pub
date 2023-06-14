@@ -44,11 +44,13 @@ class CategoriesController extends Controller
     public function addSubcategory(Request $request)
     {
         $catName = $request->input('categoryName');
+        $catNameEng = $request->input('engCategoryName');
         $catId = $request->input('mainCategory');
         
 
         $categorie = new Categories;
         $categorie->name = $catName;
+        $categorie->eng_name = $catNameEng;
         $categorie->is_active = 1;
         $categorie->parent_id = $catId;
         $categorie->save();

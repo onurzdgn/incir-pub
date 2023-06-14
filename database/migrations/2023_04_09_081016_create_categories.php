@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('eng_name');
             $table->integer('is_active')->default(1);
             $table->integer('parent_id')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

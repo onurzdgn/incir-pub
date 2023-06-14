@@ -17,7 +17,7 @@
                 <i class="fs-4 bi bi-cup-straw nav_icon"></i>
                 <span class="nav_name">Ürünler</span>
             </a>
-            <a href="" class="nav_link">
+            <a href="/orderCategories" class="nav_link {{ request()->is('orderCategories') ? 'active' : '' }}">
                 <i class="bi bi-arrow-down-up nav_icon"></i>
                 <span class="nav_name">Kategori Sıralama</span>
             </a>

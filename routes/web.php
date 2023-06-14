@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::post('updateUser/{id}', 'updateUser')->name('updateUser');
 });
 
+Route::controller(OrderCategoriesController::class)->group(function () {
+    Route::get('orderCategories', 'index');
+    Route::get('orderableCategories', 'orderableCategories');
+});

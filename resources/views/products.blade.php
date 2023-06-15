@@ -85,8 +85,11 @@
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->info ?? 'Bilgi yok' }}</td>
-                                    <td><img src="publicImages/products/{{ $product->image }}" alt=""
-                                            height="100px"></td>
+                                    <td>@if ($product->pic)
+                                            <img src="{{ asset('storage/' . $product->pic) }}" width="100" height="100">
+                                        @else
+                                            Ürün görseli yok
+                                        @endif
                                     <td>
                                         @foreach ($categories as $category)
                                             @if ($category->id == $product->category_id)

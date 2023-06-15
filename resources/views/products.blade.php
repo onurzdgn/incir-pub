@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="container mt-5 ms-1">
+    <div class="container mt-5 ms-1 mw-100">
         <div class="row">
             <div class="col-xxl-12 col-xl-12 col-l-12 col-12 col-m-12 col-s-12 col-xs-12 col-xxs-12 p-1"
                 style="background-color:#e6d8cc;">
@@ -80,7 +80,6 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                            @if ($product->is_active == 1)
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
@@ -105,7 +104,6 @@
                                     </td>
 
                                 </tr>
-                            @endif
                         @endforeach
                     </tbody>
                     <tfoot>

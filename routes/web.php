@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderCategoriesController;
+use App\Http\Controllers\OrderProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +55,8 @@ Route::controller(OrderCategoriesController::class)->group(function () {
     Route::get('orderCategories', 'index');
     Route::get('orderableCategories', 'orderableCategories');
     Route::get('orderableSubCategories/{id}', 'orderableSubCategories');
+});
+
+Route::controller(OrderProductsController::class)->group(function () {
+    Route::get('orderProducts', 'index');
 });

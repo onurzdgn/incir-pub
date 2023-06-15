@@ -112,6 +112,9 @@
                             <th>Ürün Bilgisi</th>
                             <th></th>
                             <th>Ürün Kategorisi</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </tfoot>
                 </table>

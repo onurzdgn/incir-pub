@@ -13,7 +13,7 @@ class ProductsController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        $products = Products::all()->sortByDesc('id');
+        $products = Products::where('is_active', '=', 1)->orderBy('id', 'desc')->get();
 
         
 

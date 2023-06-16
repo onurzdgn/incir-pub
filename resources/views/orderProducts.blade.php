@@ -10,9 +10,9 @@
                     <div style="color:#e6d8cc;"><small>Lütfen alt kategorisi olan kategorilerin alt kategorisini seçin!</small></div>
                     <select class="form-control w-25 mt-2" id="productsSelect">
                         <option value="0">Seçiniz</option>
-                        {{-- @foreach ($produrcts as $produrct)
-                            <option value="{{ $produrct->id }}">{{ $produrct->name }}</option>
-                        @endforeach --}}
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

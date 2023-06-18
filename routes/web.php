@@ -59,4 +59,5 @@ Route::controller(OrderCategoriesController::class)->group(function () {
 
 Route::controller(OrderProductsController::class)->group(function () {
     Route::get('orderProducts', 'index');
+    Route::get('orderableProducts/{id}', 'orderableProducts')->name('orderableProducts');
 });

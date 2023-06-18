@@ -21,7 +21,7 @@
                 <i class="bi bi-arrow-down-up nav_icon"></i>
                 <span class="nav_name">Kategori Sıralama</span>
             </a>
-            <a href="/orderProducts" class="nav_link {{ request()->is('orderProducts') ? 'active' : '' }}k">
+            <a href="/orderProducts" class="nav_link {{ request()->is('orderProducts') ? 'active' : '' }}">
                 <i class="bi bi-arrow-left-right"></i>
                 <span class="nav_name">Ürün Sıralama</span>
             </a>

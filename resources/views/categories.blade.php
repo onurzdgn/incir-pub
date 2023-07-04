@@ -23,39 +23,39 @@
                     style="width:100%; background-color:#e6d8cc;">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Kategori Adı</th>
-                            <th>Kategori Adı(İngilizce)</th>
-                            <th>Ana Kategori</th>
-                            <th>İşlemler</th>
+                            <th class="text-center">Kategori Adı</th>
+                            <th class="text-center">Kategori Adı(İngilizce)</th>
+                            <th class="text-center">Ana Kategori</th>
+                            <th class="text-center">İşlemler</th>
+                            <th class="text-center">Id</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($categories as $category)
                             <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->eng_name }}</td>
-                                <td>
+                                <td class="text-center">{{ $category->name }}</td>
+                                <td class="text-center">{{ $category->eng_name }}</td>
+                                <td class="text-center">
                                     @if ($category->parent_name == null)
                                         Ana Kategori
                                     @else
                                         {{ $category->parent_name }}
                                     @endif
-                                <td>
+                                <td class="text-center">
                                     <a href="/category/{{ $category->id }}" class="btn btn-primary"><i
                                             class="bi bi-pen"></i></a>
-                                </td>
+                                </td class="text-center">
+                                <td class="text-center">{{ $category->id }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th><input type="number" placeholder="ID" style="width: 70px;"></th>
-                            <th><input type="text" placeholder="Ürün Adı"></th>
-                            <th><input type="text" placeholder="Ürün Adı"></th>
-                            <th>Ana Kategori</th>
-                            <th>İşlemler</th>
+                            <th class="text-center"><input type="text" placeholder="Kategori"></th>
+                            <th class="text-center"><input type="text" placeholder="Kategori Adı(İngilizce)"></th>
+                            <th class="text-center">Ana Kategori</th>
+                            <th class="text-center"></th>
+                            <th class="text-center"><input type="number" placeholder="ID" style="width: 70px;"></th>
                         </tr>
                 </table>
             </div>
@@ -126,21 +126,39 @@
         $(document).ready(function() {
             $('#categories').DataTable({
                 order: [
-                    [0, 'asc']
+                    [4, 'asc']
                 ],
                 columnDefs: [{
-                    orderable: false,
-                    targets: 4
-                }],
-                rowReorder: {
-                    selector: 'td:nth-child(2)'
-                },
+                        orderable: false,
+                        targets: 3
+                    },
+                    {
+                        targets: [0],
+                        width: "30%"
+                    },
+                    {
+                        targets: [1],
+                        width: "30%"
+                    },
+                    {
+                        targets: [2],
+                        width: "30%"
+                    },
+                    {
+                        targets: [3],
+                        width: "5%"
+                    },
+                    {
+                        targets: [4],
+                        width: "5%"
+                    }
+                ],
                 responsive: true,
                 language: {
                     "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
                 },
                 initComplete: function() {
-                    this.api(0, 1, 2)
+                    this.api(0, 1)
                         .columns()
                         .every(function() {
                             var that = this;
@@ -152,12 +170,12 @@
                             });
                         });
                     this.api()
-                        .columns(3)
+                        .columns(2)
                         .every(function() {
                             var column = this;
                             var select = $(
                                     '<select><option value="">---Ürün Kategorisi---</option></select>'
-                                    )
+                                )
                                 .appendTo($(column.footer()).empty())
                                 .on('change', function() {
                                     var val = $.fn.dataTable.util.escapeRegex($(this).val());

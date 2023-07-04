@@ -69,55 +69,54 @@
                     style="width:100%; background-color:#e6d8cc;">
                     <thead>
                         <tr>
-                            <th>Ürün ID</th>
-                            <th>Ürün Adı</th>
-                            <th>Ürün Bilgisi</th>
-                            <th>Ürün Resmi</th>
-                            <th>Ürün Kategorisi</th>
-                            <th>Ürün İçerikleri</th>
-                            <th>Ürün Fiyatı</th>
-                            <th>Ürün İşlemleri</th>
+                            <th class="text-center">Ürün ID</th>
+                            <th class="text-center">Ürün Adı</th>
+                            <th class="text-center">Ürün Bilgisi</th>
+                            <th class="text-center">Ürün Resmi</th>
+                            <th class="text-center">Ürün Kategorisi</th>
+                            <th class="text-center">Ürün İçerikleri</th>
+                            <th class="text-center">Ürün Fiyatı</th>
+                            <th class="text-center">Ürün İşlemleri</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $product->id }}</td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>{{ $product->info ?? 'Bilgi yok' }}</td>
-                                    <td>@if ($product->pic)
+                                    <td class="text-center">{{ $product->id }}</td>
+                                    <td class="text-center">{{ $product->name }}</td>
+                                    <td class="text-center">{{ $product->info ?? 'Bilgi yok' }}</td>
+                                    <td class="text-center">@if ($product->pic)
                                             <img src="{{ asset('storage/' . $product->pic) }}" width="100" height="100">
                                         @else
                                             Ürün görseli yok
                                         @endif
-                                    <td>
+                                    <td class="text-center">
                                         @foreach ($categories as $category)
                                             @if ($category->id == $product->category_id)
                                                 {{ $category->name }}
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td>{{ $product->ingredients }}</td>
-                                    <td>{{ $product->price }}₺</td>
-                                    <td>
+                                    <td class="text-center">{{ $product->ingredients }}</td>
+                                    <td class="text-center">{{ $product->price }}₺</td>
+                                    <td class="text-center">
                                         <a class="btn btn-primary" href="/product/{{ $product->id }}"><i
                                                 class="bi bi-pen"></i></a>
                                     </td>
-
                                 </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th><input type="number" placeholder="ID" style="width: 70px;"></th>
-                            <th><input type="text" placeholder="Ürün Adı"></th>
-                            <th>Ürün Bilgisi</th>
-                            <th></th>
-                            <th>Ürün Kategorisi</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th class="text-center"><input type="number" placeholder="ID" style="width: 70px;"></th>
+                            <th class="text-center"><input type="text" placeholder="Ürün Adı"></th>
+                            <th class="text-center">Ürün Bilgisi</th>
+                            <th class="text-center"></th>
+                            <th class="text-center">Ürün Kategorisi</th>
+                            <th class="text-center"></th>
+                            <th class="text-center"></th>
+                            <th class="text-center"></th>
                         </tr>
                     </tfoot>
                 </table>

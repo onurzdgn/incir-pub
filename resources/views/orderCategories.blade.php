@@ -54,7 +54,6 @@
     </style>
 @endsection
 @section('content')
-
     <x-breadcrump title="Kategori Düzenle" />
 
     {{-- Buttons --}}
@@ -74,7 +73,7 @@
     <div class="container mt-4">
         <div class="row mb-1">
             <div class="col">
-                <ul id="categoryList" class="list-group mw-50" style="max-width: 1000px;">
+                <ul id="categoryList" class="list-group mw-50 sortable" style="max-width: 1000px;">
                     <li class="list-group-item mw-50">Veriler buraya gelecek ama önce butonlardan birini basman gerek.</li>
                     <li class="list-group-item">Acaba hangisine basacak &#129300;</li>
                 </ul>
@@ -104,10 +103,16 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script type="application/javascript">
             $(document).ready(function() {
+
+                $( function() {
+                    $( ".sortable" ).sortable();
+                } );
 
                 // Get Categories
                 $('#categoryOrder').click(function() {
@@ -122,7 +127,7 @@
                                 var li = document.createElement("li");
                                 li.appendChild(document.createTextNode(data[i].name));
                                 li.setAttribute("id", data[i].id);
-                                li.setAttribute("class", "list-group-item");
+                                li.setAttribute("class", "list-group-item ui-state-default");
                                 li.setAttribute("order", data[i].order);
                                 list.appendChild(li);
                             }

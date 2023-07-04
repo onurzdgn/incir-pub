@@ -139,9 +139,39 @@
                     [7, "desc"],
                 ],
                 columnDefs: [{
-                    orderable: false,
-                    targets: [6]
-                }],
+                        targets: [0],
+                        width: "20%"
+                    },
+                    {
+                        targets: [1],
+                        width: "20%"
+                    },
+                    {
+                        targets: [2],
+                        width: "10%"
+                    },
+                    {
+                        targets: [3],
+                        width: "10%"
+                    },
+                    {
+                        targets: [4],
+                        width: "20%"
+                    },
+                    {
+                        targets: [5],
+                        width: "10%"
+                    },
+                    {
+                        orderable: false,
+                        targets: [6],
+                        width: "5%"
+                    },
+                    {
+                        targets: [7],
+                        width: "5%"
+                    }
+                ],
                 initComplete: function() {
                     this.api()
                         .columns(0, 1, 5, 6)

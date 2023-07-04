@@ -74,7 +74,7 @@
     <div class="container mt-4">
         <div class="row mb-1">
             <div class="col">
-                <ul id="categoryList" class="list-group mw-50">
+                <ul id="categoryList" class="list-group mw-50" style="max-width: 1000px;">
                     <li class="list-group-item mw-50">Veriler buraya gelecek ama önce butonlardan birini basman gerek.</li>
                     <li class="list-group-item">Acaba hangisine basacak &#129300;</li>
                 </ul>
@@ -123,6 +123,7 @@
                                 li.appendChild(document.createTextNode(data[i].name));
                                 li.setAttribute("id", data[i].id);
                                 li.setAttribute("class", "list-group-item");
+                                li.setAttribute("order", data[i].order);
                                 list.appendChild(li);
                             }
                         },

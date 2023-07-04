@@ -2,6 +2,7 @@
 @section('content')
     <x-breadcrump title="Ürünler" />
 
+    {{-- Modal buttons and modals --}}
     <div class="container ms-1">
         <div class="row">
             <div class="col">
@@ -59,6 +60,7 @@
         </div>
     </div>
 
+    {{-- Products table --}}
     <div class="container mt-5 ms-1 mw-100">
         <div class="row">
             <div class="col-xxl-12 col-xl-12 col-l-12 col-12 col-m-12 col-s-12 col-xs-12 col-xxs-12 p-1"

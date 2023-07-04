@@ -123,20 +123,12 @@
         </div>
     </div>
 
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function() {
 
             $('#example').DataTable({
-                rowReorder: {
-                    selector: 'td:nth-child(2)'
-                },
                 responsive: true,
                 language: {
                     "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"

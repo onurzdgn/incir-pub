@@ -69,7 +69,6 @@
                     style="width:100%; background-color:#e6d8cc;">
                     <thead>
                         <tr>
-                            <th class="text-center">Ürün ID</th>
                             <th class="text-center">Ürün Adı</th>
                             <th class="text-center">Ürün Bilgisi</th>
                             <th class="text-center">Ürün Resmi</th>
@@ -77,39 +76,40 @@
                             <th class="text-center">Ürün İçerikleri</th>
                             <th class="text-center">Ürün Fiyatı</th>
                             <th class="text-center">Ürün İşlemleri</th>
+                            <th class="text-center">Ürün ID</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                                <tr>
-                                    <td class="text-center">{{ $product->id }}</td>
-                                    <td class="text-center">{{ $product->name }}</td>
-                                    <td class="text-center">{{ $product->info ?? 'Bilgi yok' }}</td>
-                                    <td class="text-center">@if ($product->pic)
-                                            <img src="{{ asset('storage/' . $product->pic) }}" width="100" height="100">
-                                        @else
-                                            Ürün görseli yok
+                            <tr>
+                                <td class="text-center">{{ $product->name }}</td>
+                                <td class="text-center">{{ $product->info ?? 'Bilgi yok' }}</td>
+                                <td class="text-center">
+                                    @if ($product->pic)
+                                        <img src="{{ asset('storage/' . $product->pic) }}" width="100" height="100">
+                                    @else
+                                        Ürün görseli yok
+                                    @endif
+                                <td class="text-center">
+                                    @foreach ($categories as $category)
+                                        @if ($category->id == $product->category_id)
+                                            {{ $category->name }}
                                         @endif
-                                    <td class="text-center">
-                                        @foreach ($categories as $category)
-                                            @if ($category->id == $product->category_id)
-                                                {{ $category->name }}
-                                            @endif
-                                        @endforeach
-                                    </td>
-                                    <td class="text-center">{{ $product->ingredients }}</td>
-                                    <td class="text-center">{{ $product->price }}₺</td>
-                                    <td class="text-center">
-                                        <a class="btn btn-primary" href="/product/{{ $product->id }}"><i
-                                                class="bi bi-pen"></i></a>
-                                    </td>
-                                </tr>
+                                    @endforeach
+                                </td>
+                                <td class="text-center">{{ $product->ingredients }}</td>
+                                <td class="text-center">{{ $product->price }}₺</td>
+                                <td class="text-center">
+                                    <a class="btn btn-primary" href="/product/{{ $product->id }}"><i
+                                            class="bi bi-pen"></i></a>
+                                </td>
+                                <td class="text-center">{{ $product->id }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th class="text-center"><input type="number" placeholder="ID" style="width: 70px;"></th>
                             <th class="text-center"><input type="text" placeholder="Ürün Adı"></th>
                             <th class="text-center">Ürün Bilgisi</th>
                             <th class="text-center"></th>
@@ -117,6 +117,7 @@
                             <th class="text-center"></th>
                             <th class="text-center"></th>
                             <th class="text-center"></th>
+                            <th class="text-center"><input type="number" placeholder="ID" style="width: 70px;"></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -135,11 +136,11 @@
                     "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
                 },
                 order: [
-                    [0, "desc"],
+                    [7, "desc"],
                 ],
                 columnDefs: [{
                     orderable: false,
-                    targets: [7]
+                    targets: [6]
                 }],
                 initComplete: function() {
                     this.api()
@@ -154,7 +155,7 @@
                             });
                         });
                     this.api()
-                        .columns(4)
+                        .columns(3)
                         .every(function() {
                             var column = this;
                             var select = $(
@@ -164,7 +165,7 @@
                                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
                                     column.search(val ? '^' + val + '$' : '', true, false)
-                                    .draw();
+                                        .draw();
                                 });
 
                             column
@@ -177,7 +178,7 @@
                                 });
                         });
                     this.api()
-                        .columns(2)
+                        .columns(1)
                         .every(function() {
                             var column = this;
                             var select = $(
@@ -187,7 +188,7 @@
                                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
                                     column.search(val ? '^' + val + '$' : '', true, false)
-                                    .draw();
+                                        .draw();
                                 });
 
                             column

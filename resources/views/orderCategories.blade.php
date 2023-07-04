@@ -54,8 +54,10 @@
     </style>
 @endsection
 @section('content')
+
     <x-breadcrump title="Kategori Düzenle" />
 
+    {{-- Buttons --}}
     <div class="container ms-1 mw-100">
         <div class="row mb-1 mw-100">
             <div class="row mt-1 mw-100">
@@ -68,6 +70,7 @@
         </div>
     </div>
 
+    {{-- List --}}
     <div class="container mt-4">
         <div class="row mb-1">
             <div class="col">
@@ -79,6 +82,7 @@
         </div>
     </div>
 
+    {{-- Modal --}}
     <div class="modal fade" id="subcategoriesModal" tabindex="-1" aria-labelledby="subcategoriesModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">

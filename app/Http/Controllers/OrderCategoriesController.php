@@ -16,7 +16,7 @@ class OrderCategoriesController extends Controller
 
     public function orderableCategories()
     {
-        $categories = Categories::all();
+        $categories = Categories::orderBy('order', 'asc')->get();
         return $categories;
     }
 

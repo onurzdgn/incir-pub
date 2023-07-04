@@ -129,10 +129,6 @@
                     [4, 'asc']
                 ],
                 columnDefs: [{
-                        orderable: false,
-                        targets: 3
-                    },
-                    {
                         targets: [0],
                         width: "30%"
                     },
@@ -145,7 +141,8 @@
                         width: "30%"
                     },
                     {
-                        targets: [3],
+                        orderable: false,
+                        targets: 3,
                         width: "5%"
                     },
                     {

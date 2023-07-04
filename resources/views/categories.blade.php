@@ -2,7 +2,7 @@
 @section('content')
     <x-breadcrump title="Kategoriler" />
 
-    <!-- Modal Button -->
+    {{-- Modal Button --}}
     <div class="container ms-1 mw-100">
         <div class="row mb-1 mw-100">
             <div class="col mw-100">
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <!-- All Categories Table -->
+    {{-- All Categories Table --}}
     <div class="container mt-5 ms-1">
         <div class="row">
             <div class="col-xxl-12 col-xl-12 col-l-12 col-12 col-m-12 col-s-12 col-xs-12 col-xxs-12 p-1"
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <!-- Categories Modal -->
+    {{-- Categories Modal --}}
     <div class="modal fade" id="categoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -88,7 +88,7 @@
         </div>
     </div>
 
-    <!-- Sub Categories Modal -->
+    {{-- Sub Categories Modal --}}
     <div class="modal fade" id="subcategoriesModal" tabindex="-1" aria-labelledby="subcategoriesModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">

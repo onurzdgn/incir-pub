@@ -77,8 +77,8 @@
                     <li class="list-group-item mw-50">Veriler buraya gelecek ama önce butonlardan birini basman gerek.</li>
                     <li class="list-group-item">Acaba hangisine basacak &#129300;</li>
                 </ul>
-                <button class="btn btn-success updateModal" data-bs-toggle="modal"
-                    data-bs-target="#updateModal">Kaydet</button>
+                <button id="updateButton" class="btn btn-success updateModal disabled" data-bs-toggle="modal"
+                    >Kaydet</button>
             </div>
         </div>
     </div>
@@ -105,8 +105,8 @@
         </div>
     </div>
 
-    {{-- Update Modal --}}
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    {{-- Update Category Modal --}}
+    <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -126,6 +126,36 @@
                         </tbody>
                     </table>
                     <form method="POST" action="{{ url('updateOrder') }}">
+                        @csrf
+                        <div id="updateDiv"></div>
+                        <button type="submit" class="btn btn-success">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Update Subcategory Modal --}}
+    <div class="modal fade" id="updateSubCategoryModal" tabindex="-1" aria-labelledby="updateSubCategoryategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subcategoriesModalLabel">Lütfen Gerçekleşecek Değişiklikleri Kontol Edin
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <th>Ad</th>
+                            <th>Sıra</th>
+                            <th>id</th>
+                        </thead>
+                        <tbody id="updateTable">
+
+                        </tbody>
+                    </table>
+                    <form method="POST" action="{{ url('updateSubcategoryOrder') }}">
                         @csrf
                         <div id="updateDiv"></div>
                         <button type="submit" class="btn btn-success">Kaydet</button>
@@ -173,6 +203,7 @@
 
                 // Get Categories
                 $('#categoryOrder').click(function() {
+                    var button = document.getElementById("updateButton");
                     var list = document.getElementById("categoryList");
                     $.ajax({
                         url: "/orderableCategories",
@@ -180,6 +211,9 @@
                         success: function(data) {
                             console.log(data);
                             list.replaceChildren();
+                            $('#updateButton').removeClass("disabled");
+                            button.setAttribute("data-bs-target", "#updateCategoryModal");
+                            
                             for (var i = 0; i < data.length; i++) {
                                 listElement = `<li class="list-group-item ui-state-default" id="${data[i].id}" order="${data[i].order}">
                                     ${data[i].name}
@@ -202,6 +236,7 @@
                 // Get Subcategories
                 $('#subcategorySelect').change(function() {
                     var list = document.getElementById("categoryList");
+                    var button = document.getElementById("updateButton");
                     var subcategory = document.getElementById("subcategorySelect").value;
                     var subCategoryBox = document.getElementById("subcategorySelect");
                     $.ajax({
@@ -210,6 +245,10 @@
                         success: function(data) {
                             console.log(data);
                             list.replaceChildren();
+
+                            $('#updateButton').removeClass("disabled");
+                            button.setAttribute("data-bs-target", "#updateSubCategoryModal");
+
                             for (var i = 0; i < data.length; i++) {
                                 var li = document.createElement("li");
                                 li.appendChild(document.createTextNode(data[i].name));
@@ -227,7 +266,7 @@
                     });
                 });
 
-                $('.updateModal').on('click', function () {
+                $('.updateModal').click(function () {
                    var table = document.getElementById("updateTable");
                    var div = document.getElementById("updateDiv");
                    var list = document.getElementById("categoryList");

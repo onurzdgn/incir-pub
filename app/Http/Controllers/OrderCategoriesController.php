@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderCategoriesController extends Controller
 {
@@ -11,6 +12,11 @@ class OrderCategoriesController extends Controller
     {
         // $subcategories = Categories::where('parent_id', '===', null)->get();
         $subcategories = Categories::whereNull('parent_id')->get();
+        
+        if (session('success')) {
+            Alert::toast(session('success'), 'success');
+        }
+        
         return view('orderCategories', compact('subcategories'));
     }
 
@@ -26,6 +32,21 @@ class OrderCategoriesController extends Controller
         // $subcategories = Categories::where('parent_id', '===', $id)->get();
         $subcategories = Categories::where('parent_id', '=', $id)->get();
         return $subcategories;
+    }
+
+    public function updateOrder(Request $request)
+    {dd('bakımdayım');
+        foreach ($request->all() as $key => $value) {
+            if ($key === '_token') {
+                continue;
+            }
+            echo $key . ' ' . $value . '<br>';
+            $category = Categories::find($key);
+            $category->order = $value;
+            $category->save();
+        }
+
+        return redirect('orderCategories')->with('success', 'Kategoriler başarıyla güncellendi.');
     }
     
 }

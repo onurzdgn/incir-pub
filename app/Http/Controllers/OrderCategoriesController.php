@@ -48,5 +48,20 @@ class OrderCategoriesController extends Controller
 
         return redirect('orderCategories')->with('success', 'Kategoriler başarıyla güncellendi.');
     }
+
+    public function updateSubCategoryOrder(Request $request)
+    {
+        foreach ($request->all() as $key => $value) {
+            if ($key === '_token') {
+                continue;
+            }
+            echo $key . ' ' . $value . '<br>';
+            $subcategory = Categories::find($key);
+            $subcategory->order = $value;
+            $subcategory->save();
+        }
+
+        return redirect('orderCategories')->with('success', 'Alt kategoriler başarıyla güncellendi.');
+    }
     
 }

@@ -22,7 +22,7 @@ class OrderCategoriesController extends Controller
 
     public function orderableCategories()
     {
-        $categories = Categories::orderBy('order', 'asc')->get();
+        $categories = Categories::where('parent_id', "=", null)->orderBy('order', 'asc')->get();
         return $categories;
     }
 
@@ -30,12 +30,12 @@ class OrderCategoriesController extends Controller
     {
         // $id = $request->input('id');
         // $subcategories = Categories::where('parent_id', '===', $id)->get();
-        $subcategories = Categories::where('parent_id', '=', $id)->get();
+        $subcategories = Categories::where('parent_id', '=', $id)->orderBy('order', 'asc')->get();
         return $subcategories;
     }
 
-    public function updateOrder(Request $request)
-    {dd('bakımdayım');
+    public function updateCategoryOrder(Request $request)
+    {
         foreach ($request->all() as $key => $value) {
             if ($key === '_token') {
                 continue;

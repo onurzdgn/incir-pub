@@ -55,7 +55,8 @@ Route::controller(OrderCategoriesController::class)->group(function () {
     Route::get('orderCategories', 'index');
     Route::get('orderableCategories', 'orderableCategories');
     Route::get('orderableSubCategories/{id}', 'orderableSubCategories');
-    Route::post('updateOrder', 'updateOrder')->name('updateOrder');
+    Route::post('updateCategoryOrder', 'updateCategoryOrder')->name('updateCategoryOrder');
+    Route::post('updateSubCategoryOrder', 'updateSubCategoryOrder')->name('updateSubCategoryOrder');
 });
 
 Route::controller(OrderProductsController::class)->group(function () {

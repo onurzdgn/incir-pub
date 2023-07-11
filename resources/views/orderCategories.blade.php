@@ -77,8 +77,8 @@
                     <li class="list-group-item mw-50">Veriler buraya gelecek ama önce butonlardan birini basman gerek.</li>
                     <li class="list-group-item">Acaba hangisine basacak &#129300;</li>
                 </ul>
-                <button id="updateButton" class="btn btn-success updateModal disabled" data-bs-toggle="modal"
-                    >Kaydet</button>
+                <button id="updateButton" class="btn btn-success updateModal disabled"
+                    data-bs-toggle="modal">Kaydet</button>
             </div>
         </div>
     </div>
@@ -121,43 +121,13 @@
                             <th>Sıra</th>
                             <th>id</th>
                         </thead>
-                        <tbody id="updateTable">
+                        <tbody id="updateCategoryTable">
 
                         </tbody>
                     </table>
-                    <form method="POST" action="{{ url('updateOrder') }}">
+                    <form method="POST" id="updateForm">
                         @csrf
-                        <div id="updateDiv"></div>
-                        <button type="submit" class="btn btn-success">Kaydet</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Update Subcategory Modal --}}
-    <div class="modal fade" id="updateSubCategoryModal" tabindex="-1" aria-labelledby="updateSubCategoryategoryModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="subcategoriesModalLabel">Lütfen Gerçekleşecek Değişiklikleri Kontol Edin
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead>
-                            <th>Ad</th>
-                            <th>Sıra</th>
-                            <th>id</th>
-                        </thead>
-                        <tbody id="updateTable">
-
-                        </tbody>
-                    </table>
-                    <form method="POST" action="{{ url('updateSubcategoryOrder') }}">
-                        @csrf
-                        <div id="updateDiv"></div>
+                        <div id="updateCategoryDiv"></div>
                         <button type="submit" class="btn btn-success">Kaydet</button>
                     </form>
                 </div>
@@ -205,14 +175,19 @@
                 $('#categoryOrder').click(function() {
                     var button = document.getElementById("updateButton");
                     var list = document.getElementById("categoryList");
+                    var form = document.getElementById("updateForm");
+
                     $.ajax({
                         url: "/orderableCategories",
                         type: "GET",
                         success: function(data) {
                             console.log(data);
                             list.replaceChildren();
+
                             $('#updateButton').removeClass("disabled");
                             button.setAttribute("data-bs-target", "#updateCategoryModal");
+                            button.setAttribute("data-category", "category");
+                            form.setAttribute("action", "/updateOrder");
                             
                             for (var i = 0; i < data.length; i++) {
                                 listElement = `<li class="list-group-item ui-state-default" id="${data[i].id}" order="${data[i].order}">
@@ -238,23 +213,28 @@
                     var list = document.getElementById("categoryList");
                     var button = document.getElementById("updateButton");
                     var subcategory = document.getElementById("subcategorySelect").value;
-                    var subCategoryBox = document.getElementById("subcategorySelect");
+                    var subCategoryBox = document.getElementById("subcategorySelect");        
+                    var form = document.getElementById("updateForm");                            
+                    
                     $.ajax({
                         url: "/orderableSubCategories/" + subcategory,
                         type: "GET",
                         success: function(data) {
                             console.log(data);
                             list.replaceChildren();
+                            
 
                             $('#updateButton').removeClass("disabled");
-                            button.setAttribute("data-bs-target", "#updateSubCategoryModal");
+                            button.setAttribute("data-bs-target", "#updateCategoryModal");
+                            button.setAttribute("data-category", "subcategory");
+                            button.setAttribute("data-subcategoryid", subcategory);
+                            form.setAttribute("action", "/updateSubCategoryOrder");
 
                             for (var i = 0; i < data.length; i++) {
-                                var li = document.createElement("li");
-                                li.appendChild(document.createTextNode(data[i].name));
-                                li.setAttribute("id", data[i].id);
-                                li.setAttribute("class", "list-group-item");
-                                list.appendChild(li);
+                                listElement = `<li class="list-group-item ui-state-default" id="${data[i].id}" order="${data[i].order}">
+                                    ${data[i].name}
+                                    </li>`;
+                                list.insertAdjacentHTML('beforeend', listElement);
                             }
                             subCategoryBox.value = 0;
                             $('#subcategoriesModal').hide();
@@ -267,35 +247,68 @@
                 });
 
                 $('.updateModal').click(function () {
-                   var table = document.getElementById("updateTable");
-                   var div = document.getElementById("updateDiv");
-                   var list = document.getElementById("categoryList");
+                    var table = document.getElementById("updateCategoryTable");
+                    var div = document.getElementById("updateCategoryDiv");
+                    var list = document.getElementById("categoryList");
+                    var data = $(this).data('category');
+                    var subcategoryid = $(this).data('subcategoryid');
+                    var subCategory = $(this).data('subcategory');
 
                     table.replaceChildren();
                     div.replaceChildren();
 
-                    for (let i = 0; i < list.children.length; i++) {
-                        var tr = document.createElement("tr");
-                        var td1 = document.createElement("td");
-                        var td2 = document.createElement("td");
-                        var td3 = document.createElement("td");
-                        var input = document.createElement("input");
-
-                        td1.appendChild(document.createTextNode(list.children[i].innerText));
-                        td2.appendChild(document.createTextNode(list.children[i].getAttribute("order")));
-                        td3.appendChild(document.createTextNode(list.children[i].getAttribute("id")));
-                        input.setAttribute("type", "hidden");
-                        input.setAttribute("name", list.children[i].getAttribute("id"));
-                        input.setAttribute("value", list.children[i].getAttribute("order"));
-
-                        tr.appendChild(td1);
-                        tr.appendChild(td2);
-                        tr.appendChild(td3);
+                    if (data == "category") {
                         
-                        table.appendChild(tr);
-                        div.appendChild(input);
+                        for (let i = 0; i < list.children.length; i++) {
+                            var tr = document.createElement("tr");
+                            var td1 = document.createElement("td");
+                            var td2 = document.createElement("td");
+                            var td3 = document.createElement("td");
+                            var input = document.createElement("input");
+
+                            td1.appendChild(document.createTextNode(list.children[i].innerText));
+                            td2.appendChild(document.createTextNode(list.children[i].getAttribute("order")));
+                            td3.appendChild(document.createTextNode(list.children[i].getAttribute("id")));
+                            input.setAttribute("type", "hidden");
+                            input.setAttribute("name", list.children[i].getAttribute("id"));
+                            input.setAttribute("value", list.children[i].getAttribute("order"));
+
+                            tr.appendChild(td1);
+                            tr.appendChild(td2);
+                            tr.appendChild(td3);
+                            
+                            table.appendChild(tr);
+                            div.appendChild(input);
+                        }
+
+                    } else if (data == "subcategory") {
+                        
+                        for (let i = 0; i < list.children.length; i++) {console.log("subcategory");
+                            var tr = document.createElement("tr");
+                            var td1 = document.createElement("td");
+                            var td2 = document.createElement("td");
+                            var td3 = document.createElement("td");
+                            var input = document.createElement("input");
+
+                            td1.appendChild(document.createTextNode(list.children[i].innerText));
+                            td2.appendChild(document.createTextNode(list.children[i].getAttribute("order")));
+                            td3.appendChild(document.createTextNode(list.children[i].getAttribute("id")));
+                            input.setAttribute("type", "hidden");
+                            input.setAttribute("name", list.children[i].getAttribute("id"));
+                            input.setAttribute("value", list.children[i].getAttribute("order"));
+                            
+                            tr.appendChild(td1);
+                            tr.appendChild(td2);
+                            tr.appendChild(td3);
+                            
+                            table.appendChild(tr);
+                            div.appendChild(input);
+                        }
+
                     }
+                    
                 });
+
             });
         </script>
 @endsection
